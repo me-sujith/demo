@@ -27,7 +27,7 @@ router.post(`/add`, authJwt, async (req, res) => {
 		})
 })
 
-router.post(`/update`, async (req, res) => {
+router.post(`/update`, authJwt, async (req, res) => {
 	fetch('http://localhost:4000/api/v1/notes/update', {
 		method: 'POST',
 		headers: {
@@ -42,7 +42,7 @@ router.post(`/update`, async (req, res) => {
 		})
 })
 
-router.delete('/', async (req, res) => {
+router.delete('/', authJwt, async (req, res) => {
 	fetch('http://localhost:4000/api/v1/notes/remove', {
 		method: 'DELETE',
 		headers: {

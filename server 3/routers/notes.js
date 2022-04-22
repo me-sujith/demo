@@ -24,9 +24,8 @@ router.get('/:id', async (req, res) => {
 router.post(`/`, async (req, res) => {
 	let note = new Note({
 		noteText: req.body.noteText,
-		fileUpload: req.body.fileUpload,
 		userId: req.body.userId,
-		userProfile: req.body.userProfileId,
+		userProfile: req.body.userProfile,
 	})
 	note = await note.save()
 	if (!note) {
@@ -42,9 +41,8 @@ router.post('/update', async (req, res) => {
 		req.body.id,
 		{
 			noteText: req.body.noteText,
-			fileUpload: req.body.fileUpload,
 			userId: req.body.userId,
-			userProfile: req.body.userProfileId,
+			userProfile: req.body.userProfile,
 		},
 		{ new: true }
 	)
@@ -58,7 +56,6 @@ router.post('/update', async (req, res) => {
 })
 
 router.delete('/remove', (req, res) => {
-	console.log(req.body.id)
 	Note.findByIdAndRemove(req.body.id)
 		.then((note) => {
 			if (note) {

@@ -14,16 +14,16 @@ module.exports = function (req, res, next) {
 					if (json?.token === token.token) {
 						next()
 					} else {
-						return res.status(401).json('Token mismatch')
+						return res.status(401).json('unauthorized access')
 					}
 				})
 				.catch(function (err) {
-					return res.status(401).json('API Error')
+					return res.status(401).json('Technical Isuues')
 				})
 		} catch (error) {
-			return res.status(401).json('Token validation failed' + error.message)
+			return res.status(401).json('Token Expired, login again')
 		}
 	} else {
-		return res.status(401).json('Bearer Token not found')
+		return res.status(401).json('Token Expired')
 	}
 }

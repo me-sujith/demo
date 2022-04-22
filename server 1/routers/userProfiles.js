@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
 		})
 })
 
-router.post(`/create`, async (req, res) => {
+router.post(`/add`, async (req, res) => {
 	fetch('http://localhost:5000/api/v1/userProfiles/', {
 		method: 'POST',
 		headers: {

@@ -58,7 +58,7 @@ router.post('/logout', async (req, res) => {
 	const user = await User.findById(token.userId)
 	user.token = ''
 	user.save()
-	return res.status(200).send('OK')
+	return res.status(200).send('Logout Completed')
 })
 
 module.exports = router

@@ -5,10 +5,7 @@ const noteSchema = mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	fileUpload: {
-		type: String,
-		required: true,
-	},
+
 	userId: {
 		type: String,
 		required: true,
